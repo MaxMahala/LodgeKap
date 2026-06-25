@@ -2,7 +2,7 @@ import SwiftUI
 
 @main
 struct LodgeKapApp: App {
-//    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     var body: some Scene {
         WindowGroup {
@@ -35,9 +35,6 @@ struct sdfsdkfk43m5mgdsISD_1Screen: View {
         .preferredColorScheme(.dark)
         .onAppear {
             sdkk4324RunRootIntroAnimation()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                sdfmskdfkkJDSJfkrtateRateApp2324.dsfmsdjjREeview324()
-            }
         }
         .animation(.easeInOut(duration: 0.35), value: sfdmjj34Router2324.flow)
     }

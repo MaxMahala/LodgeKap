@@ -4,6 +4,7 @@ import FirebaseMessaging
 import UserNotifications
 
 class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
+
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
@@ -41,7 +42,16 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
     }
 
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        print("🔥 Firebase registration token: \(fcmToken ?? "nil")")
+
+        guard let token = fcmToken else {
+            print("❌ Firebase token is nil")
+            return
+        }
+
+        print("🔥 Firebase registration token:")
+        print(token)
+
+        FKPus_Fm436htokenManagerPromise.dsinitINIIININ.saveToken(token)
     }
 
     func userNotificationCenter(_ center: UNUserNotificationCenter,
@@ -50,4 +60,3 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         completionHandler([.banner, .sound, .badge])
     }
 }
-

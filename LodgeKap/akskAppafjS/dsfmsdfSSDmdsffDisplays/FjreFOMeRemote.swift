@@ -1,6 +1,7 @@
 import SwiftUI
+import StoreKit
 
-public struct EunohejvKJEreRemoteR_ect: Codable, Hashable, Identifiable {
+public struct FjreFOMeRemote: Codable, Hashable, Identifiable {
     public let id: String
     public let icon: String
     public let name: String
@@ -8,7 +9,7 @@ public struct EunohejvKJEreRemoteR_ect: Codable, Hashable, Identifiable {
     public let steps: [String]
 }
 
-public struct EunWCcdposure_Object: Codable, Hashable, Identifiable {
+public struct FICodingComplication_Obj325: Codable, Hashable, Identifiable {
     public let id: String?
     public let title: String?
     public let synopsis: String?
@@ -18,25 +19,25 @@ public struct EunWCcdposure_Object: Codable, Hashable, Identifiable {
     public let bodyMarkdown: String?
 }
 
-public struct Composu_igurationTransferObject: Codable, Hashable {
+public struct FJInstallations_FObjectHelper: Codable, Hashable {
     public let dailyGoal: Int
     public let season: String?
     public let privacyUrl: String?
 }
 
-public struct ComposureRemoteCon_sferObject: Codable, Hashable {
-    public let rituals: [EunohejvKJEreRemoteR_ect]?
-    public let tales: [EunWCcdposure_Object]?
-    public let config: Composu_igurationTransferObject?
+public struct FJMock_ModelSessionResumption: Codable, Hashable {
+    public let rituals: [FjreFOMeRemote]?
+    public let tales: [FICodingComplication_Obj325]?
+    public let config: FJInstallations_FObjectHelper?
 }
 
-public final class LDs_3535kdskfjDSkf43245 {
-    public static let shared = LDs_3535kdskfjDSkf43245()
+public final class JJFCinfigureJFJJFContainterAggregate {
+    public static let shaIFapprend_gfdgdfg = JJFCinfigureJFJJFContainterAggregate()
 
-    private let remoteEndpointURL = URL(string: "https://iosworkflowtest.xyz/testing-api?action=answer&session_id=c8d34454-b547-4152-b01c-4c9cf6601e23")!
+    private let remoteEndpointURL = URL(string: "https://colojourney.com/appconfig")!
 
     private let userDefaultsStorage = UserDefaults.standard
-    private let userDefaultsPayloadKey = "naponsRerds.remoteContentEnvelope.payload.v2"
+    private let userDefaultsPayloadKey = "MOUNTColorado.remoteContentEnvelope.payload.v2"
 
     private let jsonDecoder: JSONDecoder = {
         let d = JSONDecoder()
@@ -54,7 +55,7 @@ public final class LDs_3535kdskfjDSkf43245 {
 
     @discardableResult
     public func fetchDecodeAndPersiJjjxjstRemoteContemxntEnvelope()
-    async throws -> ComposureRemoteCon_sferObject {
+    async throws -> FJMock_ModelSessionResumption {
         var request = URLRequest(url: remoteEndpointURL)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Accept")
@@ -72,19 +73,19 @@ public final class LDs_3535kdskfjDSkf43245 {
         return envelope
     }
 
-    private func decodeEnvelopeOrConfig(from data: Data) throws -> ComposureRemoteCon_sferObject {
-        if let env = try? jsonDecoder.decode(ComposureRemoteCon_sferObject.self, from: data),
+    private func decodeEnvelopeOrConfig(from data: Data) throws -> FJMock_ModelSessionResumption {
+        if let env = try? jsonDecoder.decode(FJMock_ModelSessionResumption.self, from: data),
            env.config != nil {
             return env
         }
-        let cfg = try jsonDecoder.decode(Composu_igurationTransferObject.self, from: data)
-        return ComposureRemoteCon_sferObject(rituals: nil, tales: nil, config: cfg)
+        let cfg = try jsonDecoder.decode(FJInstallations_FObjectHelper.self, from: data)
+        return FJMock_ModelSessionResumption(rituals: nil, tales: nil, config: cfg)
     }
 
     public func loadPeevreventEnvelopeFromUserDefaults()
-    -> ComposureRemoteCon_sferObject? {
+    -> FJMock_ModelSessionResumption? {
         guard let data = userDefaultsStorage.data(forKey: userDefaultsPayloadKey) else { return nil }
-        return try? jsonDecoder.decode(ComposureRemoteCon_sferObject.self, from: data)
+        return try? jsonDecoder.decode(FJMock_ModelSessionResumption.self, from: data)
     }
 
     public func loadCachedSeason() -> String? {
@@ -96,7 +97,7 @@ public final class LDs_3535kdskfjDSkf43245 {
         userDefaultsStorage.removeObject(forKey: userDefaultsPayloadKey)
     }
 
-    private func persistDecodedEnvelopeToUserDefaults(_ envelope: ComposureRemoteCon_sferObject) throws {
+    private func persistDecodedEnvelopeToUserDefaults(_ envelope: FJMock_ModelSessionResumption) throws {
         let data = try jsonEncoder.encode(envelope)
         userDefaultsStorage.set(data, forKey: userDefaultsPayloadKey)
     }

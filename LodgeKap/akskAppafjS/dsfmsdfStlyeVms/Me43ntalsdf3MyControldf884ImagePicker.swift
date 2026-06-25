@@ -76,16 +76,6 @@ final class Me43ntalsdf3MyControldf884PermissionManager: ObservableObject {
     }
 }
 
-final class sdfsdfkkSDeventTrack43995r {
-    static let sharedsdfsk43 = sdfsdfkkSDeventTrack43995r()
-    private init() {}
-
-    func tracksdf_Ds435AppLoad34() {
-        AppEvents.shared.logEvent(AppEvents.Name("activated_app"))
-    }
-}
-
-
 final class Me43ntalsdf3MyControldf884MockAnalyzer: Me43ntalsdf3MyControldf884AnalyzerProtocol {
     func analyzeImagedf884(_ image: UIImage) async throws -> Me43ntalsdf3MyControldf884Snapshot {
         let allStates = Me43ntalsdf3MyControldf884StateType.allCases
