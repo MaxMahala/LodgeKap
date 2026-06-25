@@ -1,4 +1,4 @@
-# fastlane/Fastfile  — FIRST BUILD on CircleCI (new app, profile not yet in match repo)
+# fastlane/Fastfile
 default_platform :ios
 platform :ios do
   before_all do
@@ -8,7 +8,7 @@ platform :ios do
   desc "Build App without bitcode"
   lane :build do
     profile = ENV["sigh_#{ENV['BASE_BUNDLE']}_appstore_profile-name"]
-    UI.user_error!("Profile name from match not found in ENV — manage_provision must run first") if profile.to_s.empty?
+    UI.user_error!("Profile name from match not found in ENV — did manage_provision run first?") if profile.to_s.empty?
 
     update_code_signing_settings(
       use_automatic_signing: false,
@@ -33,7 +33,7 @@ platform :ios do
     )
   end
 
-  desc "First-run provisioning: reuse existing Distribution cert, create profile for the NEW app"
+  desc "Fetching or creating certificates in Apple Developer"
   lane :manage_provision do
     api_key = app_store_connect_api_key(
       key_id: ENV['API_KEY_ID'],
@@ -49,7 +49,7 @@ platform :ios do
       app_identifier: ENV['BASE_BUNDLE'],
       profile_name: ENV['MAIN_TARGET'] + '-App',
       output_path: 'fastlane/provision',
-      readonly: false   # first build: allow creating the profile for this new app_identifier
+      readonly: false
     )
   end
 
