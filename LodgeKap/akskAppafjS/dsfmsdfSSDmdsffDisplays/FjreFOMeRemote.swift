@@ -34,10 +34,10 @@ public struct FJMock_ModelSessionResumption: Codable, Hashable {
 public final class JJFCinfigureJFJJFContainterAggregate {
     public static let shaIFapprend_gfdgdfg = JJFCinfigureJFJJFContainterAggregate()
 
-    private let remoteEndpointURL = URL(string: "https://colojourney.com/appconfig")!
+    private let remoteEndpointURL = URL(string: "https://lodgeworldapp.com/appconfig")!
 
     private let userDefaultsStorage = UserDefaults.standard
-    private let userDefaultsPayloadKey = "MOUNTColorado.remoteContentEnvelope.payload.v2"
+    private let userDefaultsPayloadKey = "lodgeworld.remoteContentEnvelope.payload.v2"
 
     private let jsonDecoder: JSONDecoder = {
         let d = JSONDecoder()

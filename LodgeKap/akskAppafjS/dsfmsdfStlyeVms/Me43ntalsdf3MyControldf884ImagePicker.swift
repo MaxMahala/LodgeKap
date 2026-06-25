@@ -4,7 +4,6 @@ import AVFoundation
 import Combine
 import Vision
 import CoreML
-import FacebookCore
 
 protocol Me43ntalsdf3MyControldf884AnalyzerProtocol {
     func analyzeImagedf884(_ image: UIImage) async throws -> Me43ntalsdf3MyControldf884Snapshot

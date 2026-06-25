@@ -845,10 +845,18 @@ struct Me43ntalsdf3Lisdfmkk345feExercisePlayView: View {
 
     var body: some View {
         ZStack {
-            Image(exercise.type.imageName)
-                .resizable()
-                .scaledToFill()
-                .ignoresSafeArea()
+            Thedsf4k3k535me.forestDeep.ignoresSafeArea()
+            
+            LinearGradient(
+                colors: [
+                    Thedsf4k3k535me.forestDeep.opacity(0.7),
+                    Thedsf4k3k535me.forestDark.opacity(0.9),
+                    Color.black.opacity(0.95)
+                ],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .ignoresSafeArea()
 
             LinearGradient(
                 colors: [.black.opacity(0.7), .black.opacity(0.95)],
